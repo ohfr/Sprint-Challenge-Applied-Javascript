@@ -30,13 +30,30 @@ Edit this document to include your answers after each question. Make sure to lea
 
 1. What is the DOM?
 
+
+    **Document Object Model**
+
+
 2. What is an event?
+
+
+**something that happens to an HTML element**
 
 3. What is an event listener?
 
+**event listeners attach what to do when the event is fired, tells the DOM to look out for a specified event and what to do when it happens**
+
+
 4. Why would we convert a NodeList into an Array?
 
+
+**to use array methods such as map**
+
+
 5. What is a component?
+
+**a useable function to build HTML elements, the basis of React!**
+
 
 ### Git Set up
 
