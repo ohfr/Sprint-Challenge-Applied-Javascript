@@ -20,28 +20,38 @@
 
 const cardContainer = document.querySelector('.cards-container')
 
-
+let propContainer = [];
 axios.get('https://lambda-times-backend.herokuapp.com/articles')
 .then(res => {
 
     //this is a super brute way of completing this
-    
-    res.data.articles.bootstrap.forEach(cur => {
-         cardContainer.appendChild(cardMaker(cur));
+
+    // res.data.articles.bootstrap.forEach(cur => {
+    //      cardContainer.appendChild(cardMaker(cur));
+    // })
+    // res.data.articles.javascript.forEach(cur => {
+    //     cardContainer.appendChild(cardMaker(cur));
+    // })
+    // res.data.articles.jquery.forEach(cur => {
+    //     cardContainer.appendChild(cardMaker(cur));
+    // })
+    // res.data.articles.node.forEach(cur => {
+    //     cardContainer.appendChild(cardMaker(cur));
+    // })
+    // res.data.articles.technology.forEach(cur => {
+    //     cardContainer.appendChild(cardMaker(cur));
+    // })
+    // console.log(res)
+
+    //this is slightly better
+    for (prop in res.data.articles) {
+        propContainer.push(prop);
+    }
+    propContainer.forEach(cur => {
+        res.data.articles[cur].forEach( item => {
+            cardContainer.appendChild(cardMaker(item));
+        })
     })
-    res.data.articles.javascript.forEach(cur => {
-        cardContainer.appendChild(cardMaker(cur));
-    })
-    res.data.articles.jquery.forEach(cur => {
-        cardContainer.appendChild(cardMaker(cur));
-    })
-    res.data.articles.node.forEach(cur => {
-        cardContainer.appendChild(cardMaker(cur));
-    })
-    res.data.articles.technology.forEach(cur => {
-        cardContainer.appendChild(cardMaker(cur));
-    })
-    console.log(res.data.articles)
 })
 .catch(err => {
     console.log(err);
